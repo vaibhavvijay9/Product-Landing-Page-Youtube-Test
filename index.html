@@ -149,19 +149,19 @@
                 for (n = 0; n < v.length; n++) {
                     div = document.createElement("div");
                     div.setAttribute("data-id", v[n].dataset.id);
-                    div.innerHTML = labnolThumb(v[n].dataset.id);
-                    div.onclick = labnolIframe;
+                    div.innerHTML = videoThumbnail(v[n].dataset.id);
+                    div.onclick = displayIframe;
                     v[n].appendChild(div);
                 }
             });
 
-        function labnolThumb(id) {
+        function videoThumbnail(id) {
             var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="video-thumbnail">',
                 play = '<div class="play"></div>';
             return thumb.replace("ID", id) + play;
         }
 
-        function labnolIframe() {
+        function displayIframe() {
             var iframe = document.createElement("iframe");
             var embed = "https://www.youtube.com/embed/ID?autoplay=1";
             iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
